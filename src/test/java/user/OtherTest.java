@@ -1,14 +1,14 @@
 package user;
+
 import base.BaseTest;
 import io.qameta.allure.junit4.DisplayName;
 import junit.framework.Assert;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pageStep.LoginPage;
-import pageStep.OtherStep;
+import page.LoginPage;
+import page.OtherStep;
 
-public class OtherTest extends  BaseTest {
+public class OtherTest extends BaseTest {
     private CreateUser createUser;
     private UserStep userStep;
     private LoginPage loginPage;
@@ -51,7 +51,7 @@ public class OtherTest extends  BaseTest {
     }
 
     @Test
-    public void SelectBuns(){
+    public void SelectBuns() {
         otherStep.clickSauces();
         otherStep.clickBuns();
         otherStep.selectBuns();
@@ -59,14 +59,14 @@ public class OtherTest extends  BaseTest {
     }
 
     @Test
-    public void SelectSauces(){
+    public void SelectSauces() {
         otherStep.clickSauces();
         otherStep.selectSauce();
         Assert.assertTrue("Соусы выбраны", otherStep.selectSauce());
     }
 
     @Test
-    public void SelectFillings(){
+    public void SelectFillings() {
         otherStep.clickFilling();
         otherStep.selectFillings();
         Assert.assertTrue("Начинки выбраны", otherStep.selectFillings());

@@ -1,4 +1,4 @@
-package pageStep;
+package page;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RegisterPage {
     private static WebDriver driver;
+
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -24,6 +25,7 @@ public class RegisterPage {
         driver.findElement(ACCOUNT).click();
         return this;
     }
+
     @Step("Кликаем на кнопку регитсрации")
     public RegisterPage clickRegisterButton() {
         driver.findElement(REGISTER).click();
@@ -36,18 +38,21 @@ public class RegisterPage {
         driver.findElement(NAME).sendKeys(name);
         return this;
     }
+
     @Step("Кликаем на поле Email")
     public RegisterPage clickEmailInput(String email) {
         driver.findElement(EMAIL).click();
         driver.findElement(EMAIL).sendKeys(email);
         return this;
     }
+
     @Step("Кликаем на поле пароль")
     public RegisterPage clickPasswordInput(String password) {
         driver.findElement(PASSWORD).click();
         driver.findElement(PASSWORD).sendKeys(password);
         return this;
     }
+
     @Step("Кликаем на кнопку зарегистрироваться")
     public RegisterPage clickSignUpButton() {
         driver.findElement(SIGN_UP).click();
@@ -59,6 +64,7 @@ public class RegisterPage {
         driver.get(SUCCESS_REGISTER);
         return driver.getCurrentUrl();
     }
+
     @Step("Получаем текст ошибки")
     public String errorText() {
         return driver.findElement(TEXT_ERROR).getText();

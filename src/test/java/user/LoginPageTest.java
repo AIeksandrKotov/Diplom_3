@@ -3,10 +3,9 @@ package user;
 import base.BaseTest;
 import io.qameta.allure.junit4.DisplayName;
 import junit.framework.Assert;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pageStep.LoginPage;
+import page.LoginPage;
 
 
 public class LoginPageTest extends BaseTest {

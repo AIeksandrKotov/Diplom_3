@@ -1,9 +1,8 @@
-package pageStep;
+package page;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,16 +10,18 @@ import java.time.Duration;
 
 public class LoginPage {
     private static WebDriver driver;
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
+
     private final By ACCOUNT = By.xpath(".//p[text()='Личный Кабинет']");
     private final By ENTER_ACCOUNT = By.xpath(".//button[text()='Войти в аккаунт']");
     private final By REGISTER = By.xpath(".//a[text()='Зарегистрироваться']");
     private final By ENTER_BUTTON = By.xpath(".//a[text()='Войти']");
     private final By PASSWORD_RECOVERY = By.xpath(".//a[text()='Восстановить пароль']");
     private final By EMAIL = By.xpath(".//input[@name='name']");
-    private final By PASSWORD =  By.xpath(".//input[@name='Пароль']");
+    private final By PASSWORD = By.xpath(".//input[@name='Пароль']");
     private final By ENTER = By.xpath("//button[text()='Войти']");
 
 
@@ -30,6 +31,7 @@ public class LoginPage {
         wait.until(ExpectedConditions.urlToBe("https://stellarburgers.nomoreparties.site/"));
         return driver.getCurrentUrl().equals("https://stellarburgers.nomoreparties.site/");
     }
+
     @Step("Получаем login page")
     public boolean successButtonExitLogin() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -73,12 +75,14 @@ public class LoginPage {
         driver.findElement(EMAIL).sendKeys(email);
         return this;
     }
+
     @Step("Вводим пароль")
     public LoginPage clickPassword(String password) {
         driver.findElement(PASSWORD).click();
         driver.findElement(PASSWORD).sendKeys(password);
         return this;
     }
+
     @Step("Кликаем на кнопку войти")
     public LoginPage clickEnterButton() {
         driver.findElement(ENTER).click();
@@ -100,6 +104,7 @@ public class LoginPage {
         clickPassword(password);
         clickEnterButton();
     }
+
     @Step("Логин пользователя через форму регистрации")
     public void registrationForm(String email, String password) {
         clickAccountButton();
@@ -109,6 +114,7 @@ public class LoginPage {
         clickPassword(password);
         clickEnterButton();
     }
+
     @Step("Логин пользователя через форму востановления пароля")
     public void passwordRecovery(String email, String password) {
         clickAccountButton();

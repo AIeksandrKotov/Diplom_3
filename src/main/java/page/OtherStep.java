@@ -1,4 +1,4 @@
-package pageStep;
+package page;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -29,16 +29,19 @@ public class OtherStep {
         driver.findElement(ACCOUNT).click();
         return this;
     }
+
     @Step("Кликаем на конструктор")
     public OtherStep clickConstructor() {
         driver.findElement(CONSTRUCTOR).click();
         return this;
     }
+
     @Step("Кликаем на логотип")
     public OtherStep clickLogo() {
         driver.findElement(LOGO).click();
         return this;
     }
+
     @Step("Кликаем на кнопку выход")
     public OtherStep clickAccountExit() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -51,10 +54,12 @@ public class OtherStep {
     public void clickBuns() {
         driver.findElement(BUNS).click();
     }
+
     @Step("Переход к разделу Соусы")
     public void clickSauces() {
         driver.findElement(SAUCES).click();
     }
+
     @Step("Переход к разделу Булочки")
     public void clickFilling() {
         driver.findElement(FILLINGS).click();
@@ -65,10 +70,12 @@ public class OtherStep {
     public boolean selectBuns() {
         return driver.findElement(BUNS).getAttribute("class").contains("current");
     }
+
     @Step("Проверяем выбранный элемент")
     public boolean selectSauce() {
         return driver.findElement(SAUCES).getAttribute("class").contains("current");
     }
+
     @Step("Проверяем выбранный элемент")
     public boolean selectFillings() {
         return driver.findElement(FILLINGS).getAttribute("class").contains("current");
